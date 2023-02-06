@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <span id="milisecond">0</span>:
+        <span id="second">0</span>:
+        <span id="minut">0</span>:
+
+    </div>
+
+    <div>
+        <button onclick="start()">start</button>
+        <button onclick="stop()">stop </button>
+        <button onclick="reset()">reset</button>
+    </div>
+
+
+    <script>
+        let milisec = 50000
+        let myInterval;
+        function start() {
+            myInterval= setInterval(startCount, 100)
+
+
+        }
+        function startCount() {
+            milisec += 100;
+            document.getElementById("milisecond").innerHTML = milisec % 1000;
+            document.getElementById("second").innerHTML = ((milisec - (milisec % 1000)) / 1000) % 60;
+            document.getElementById("minut").innerHTML = (milisec - ((milisec - (milisec % 1000)) / 1000) % 60 * 1000 - (milisec % 1000)) / 60000
+        }
+        function stop() {
+            clearInterval(myInterval)
+
+        }
+    function reset(){
+        milisec=0;
+            document.getElementById("milisecond").innerHTML = milisec % 1000;
+            document.getElementById("second").innerHTML = ((milisec - (milisec % 1000)) / 1000) % 60;
+            document.getElementById("minut").innerHTML = (milisec - ((milisec - (milisec % 1000)) / 1000) % 60 * 1000 - (milisec % 1000)) / 60000
+        
+
+    }
+
+
+
+    </script>
+
+</body>
+
+</html>
