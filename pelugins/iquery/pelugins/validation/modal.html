@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modal</title>
+</head>
+<body>
+    <style>
+        div{
+            background-color:yellow;
+            width: 300px;
+        }
+    </style>
+    <div>Lorem, ipsum dolor.
+        <span>X</span>
+    </div>
+    <button>toggle</button>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+   <script>
+     $('button').click(function(){
+        $("div").toggle()
+     })
+   </script>
+</body>
+</html>

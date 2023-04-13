@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M006 محصول</title>
+    <link rel="stylesheet" href="./dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="pelugins/toast/jquery.toast.css">
+
+</head>
+
+<body dir="rtl">
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        @font-face {
+            font-family: vazir;
+            src: url(asstes/fonts/Vazirmatn-Light.woff2)format("woff2");
+        }
+
+        body {
+            font-family: vazir;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            font-size: 11px;
+        }
+
+        a:hover {
+            color: red;
+        }
+
+        li {
+            list-style: none;
+            /* padding-top: 1px; */
+        }
+
+
+        @media screen and (max-width: 1000px) {
+            li .bott {
+                margin-top: -15px;
+            }
+        }
+
+        .height-img {
+            height: 40%;
+        }
+
+        .sidenav {
+            background-color: #f4f0f0;
+            position: fixed;
+            width: 300px;
+            height: 100%;
+            right: -300px;
+            top: 0;
+            z-index: 1000;
+            transition: 3s;
+        }
+
+        .fs-7 {
+            font-size: 12px;
+        }
+
+        .btn-border {
+            border: 1px solid lightgray;
+            border-radius: 5px
+        }
+
+        .box-search {
+            background-color: rgb(236, 231, 231);
+            border-radius: 7px;
+            border: 1px solid rgb(236, 231, 231);
+            width: 300px;
+            padding: 4px 10px;
+
+        }
+
+        .right-sidenav {
+            right: 0;
+        }
+
+        .close-sidenav {
+            right: -300px;
+        }
+
+        .btn-custom {
+            background-color: rgb(239, 230, 215);
+        }
+
+        #menu li a {
+            border: 1px solid rgb(255, 255, 255) !important;
+        }
+
+        #menu li a:hover {
+            background-color: #e9e2e2 !important;
+            color: black !important;
+        }
+
+        .box-search {
+            background-color: rgb(236, 231, 231);
+            border-radius: 7px;
+            border: 1px solid rgb(236, 231, 231);
+            width: 300px;
+            padding: 4px 10px;
+
+        }
+
+        @media screen and (max-width: 680px) {
+            .hiiden {
+                display: none;
+            }
+        }
+
+        .sidenav {
+            background-color: #f4f0f0;
+            position: fixed;
+            width: 300px;
+            height: 100%;
+            right: -300px;
+            top: 0;
+            z-index: 1000;
+            transition: 3s;
+        }
+
+        .right-sidenav {
+            right: 0;
+        }
+
+        .close-sidenav {
+            right: -300px;
+        }
+
+        .btn-custom {
+            background-color: rgb(239, 230, 215);
+        }
+
+        #menu li a {
+            border: 1px solid rgb(255, 255, 255) !important;
+        }
+
+        #menu li a:hover {
+            background-color: #e9e2e2 !important;
+            color: black !important;
+        }
+
+        table,
+        tbody,
+        td,
+        tr,
+        thead {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 400px;
+            height: 30px;
+        }
+
+        .addBasket {
+            display: none;
+
+
+        }
+
+        .showBasket {
+            display: block;
+
+        }
+    </style>
+
+    <header dir="rtl">
+        <div class="bg-light" style="height:50px ;display: flex;justify-content: space-between;">
+            <div>
+                <img src="asstes/img/logo.svg" class="pe-4" width="100" height="70" alt="">
+                <span style="position: relative;" class="hiiden">
+                    <input type="search " class="box-search disabled " placeholder="جستجو">
+                    <i class="fa fa-search" aria-hidden="true"
+                        style="font-size:12px ; position: absolute; right: 60px; top: 8px;"></i>
+                </span>
+            </div>
+
+
+            <div class="ps-3 mt-3  d-md-block">
+                <a class="ps-2 fs-7 btn btn-border" href="http://127.0.0.1:5502/login.html"> ورود | ثبت
+                    نام</a>
+                <a href="http://127.0.0.1:5502/faq.html" class=" btn fs-7 btn-border">پرسش های متداول</a>
+            </div>
+        </div>
+        <nav class="navbar  navbar-light bg-light ">
+            <div class="container-fluid">
+
+                <button class="navbar-toggler btn-open-sidenav" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon "></span>
+                </button>
+                <div class="sidenav">
+
+                    <ul class="navbar-nav fs-7" id="menu">
+                        <span class="btn btn-custom">X</span>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark " href="#">دسته بندی کالاها</a>
+                            <ul>
+                                <li>
+                                    <a href="#">لباس مردانه</a>
+                                </li>
+                                <li>
+                                    <a href="#">لباس بچگانه</a>
+                                </li>
+                                <li>
+                                    <a href="#">لباس زنانه</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#"> آرایشی بهداشتی</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">کالای کودک</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="#"></a>
+                        </li>
+                        <li class="nav-item mb-5 ">
+                            <a target="_self" class="nav-link text-dark bott" href="login.html">درباره ما
+
+                            </a>
+                        </li>
+                    </ul>
+
+
+                </div>
+
+
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-6">
+                    <img src="asstes/img/poo-z-7.webp" class="w-100" alt="">
+                </div>
+                <div class="col-12 col-md-12 col-lg-6">
+                    <div class="pb-5" style="border: px solid rgb(169, 168, 168);">
+                        <h5>پالتو زنانه پشمی مدل tedi کد M006</h5>
+                        <hr>
+
+                        <select class="w-25" name="" id="">
+                            <option value="38"> سایز 38</option>
+                            <option value="40">40 سایز</option>
+                            <option value="42">42 سایز</option>
+                            <option value="42">44 سایز</option>
+                            <option value="42">46 سایز</option>
+                        </select>
+                        <hr>
+                        <p class="fs-7">ارسال رایگان برای اعضای دیجی پلاس می باشد</p>
+                    </div>
+                    <h6>جنس پارچه پشمی</h6>
+                    <span class="fs-7">
+
+                        پشم به داشتن دوام بالا معروف است و عایق گرما است؛ وابسته به نوع حیوانی که از آن برای تولید پشم
+                        مورد استفاده قرار گرفته، پارچه حاصل نیز دارای همان خاصیت عایق گرمای طبیعی است که حیوانات را در
+                        طول زمستان گرم نگه می دارد. طی قرن ها، بشر برای گرم نگه داشتن خود از پارچه های پشمی استفاذه کرده
+                        است. که البته این پشم صنعتی میباشد
+
+                    </span>
+                    <hr>
+
+                    <a href="#">
+                        <button class="btn btn-danger basket">افزودن به سبد خرید</button>
+                    </a>
+
+
+                    <div class="row bg-light" style="border: 1px solid white;height: 100px;">
+                        <div class="col-12 text-center m-auto pb-5 addBasket ">
+                            <h5 class="fs-5">به سبد خرید شما اضافه شد</h5>
+                            <table class="text-center m-auto my-5 position-relative">
+                                <thead class="fs-6">
+                                    <td>
+                                        نام محصول
+                                    </td>
+                                    <td>قیمت</td>
+                                </thead>
+                                <tbody class="fs-7 ">
+                                    <td>
+                                        پالتوپشمی مدل tedi کد M006
+                                    </td>
+                                    <td>
+                                        840,000
+                                    </td>
+                                </tbody>
+
+                            </table>
+                            <button class="delete-basket fs-5 border-0 bg-light text-center m-auto"><i
+                                    class="fa fa-trash-o text-danger" aria-hidden="true">حذف از سبد خرید</i></button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+        </div>
+    </main>
+    <script src="jQuery/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="pelugins/toast/jquery.toast.js"></script>
+    <script>
+
+        $(function () {
+            $('.btn-open-sidenav').click(function () {
+                $('.sidenav').addClass("right-sidenav");
+                $('.btn-custom').click(function () {
+                    $('.sidenav').removeClass("right-sidenav")
+                })
+            })
+
+
+        })
+    </script>
+
+    <script>
+        $(function () {
+
+            $("#menu").menu();
+        })
+    </script>
+    <script>
+        $(function () {
+            $('.basket').click(function () {
+                $('.addBasket').addClass('showBasket');
+
+                $.toast({
+                    text: "به سبد خرید شما اضافه شد",
+                    showHideTransition: 'slide',  // It can be plain, fade or slide
+                    bgColor: 'green',              // Background color for toast
+                    textColor: 'white',            // text color
+                    allowToastClose: false,       // Show the close button or not
+                    hideAfter: 5000,              // `false` to make it sticky or time in miliseconds to hide after
+                    stack: 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+                    textAlign: 'center',            // Alignment of text i.e. left, right, center
+                    position: 'bottom-right',      // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+                    width: '20px'
+                })
+
+
+            })
+            $('.delete-basket').click(function () {
+                $('.addBasket').removeClass('showBasket')
+            })
+            $('.delete-basket').click(function () {
+                $.toast({
+                    text: "با موفقیت از سبد خرید حذف شد",
+                    showHideTransition: 'slide',  // It can be plain, fade or slide
+                    bgColor: 'red',              // Background color for toast
+                    textColor: 'white',            // text color
+                    allowToastClose: false,       // Show the close button or not
+                    hideAfter: 5000,              // `false` to make it sticky or time in miliseconds to hide after
+                    stack: 1,                     // `fakse` to show one stack at a time count showing the number of toasts that can be shown at once
+                    textAlign: 'center',            // Alignment of text i.e. left, right, center
+                    position: 'bottom-right',      // bottom-left or bottom-right or bottom-center or top-left or top-right or top-center or mid-center or an object representing the left, right, top, bottom values to position the toast on page
+                    width: '20px'
+                })
+            })
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "allPoro": [
+    {
+      "id": "1",
+      "img": "https://dkstatics-public.digikala.com/digikala-adservice-banners/7476984546dd08a38883fc865cf28cb728bbb8d8_1679904130.jpg?x-oss-process=image/quality,q_95/format,webp",
+      "model": "M001",
+      "price": "200"
+    },
+    {
+      "id": "2",
+      "img": "https://dkstatics-public.digikala.com/digikala-adservice-banners/7476984546dd08a38883fc865cf28cb728bbb8d8_1679904130.jpg?x-oss-process=image/quality,q_95/format,webp",
+      "model": "M002",
+      "price": "300"
+    },
+    {
+      "id": "3",
+      "img": "https://dkstatics-public.digikala.com/digikala-adservice-banners/7476984546dd08a38883fc865cf28cb728bbb8d8_1679904130.jpg?x-oss-process=image/quality,q_95/format,webp",
+      "model": "M003",
+      "price": "400"
+    }
+  ],
+  "users": [
+    {
+      "name": "saba",
+      "email": "saba@.com",
+      "pass": "1234",
+      "phone": "09381245627",
+      "id": 1
+    },
+    {
+      "name": "elena",
+      "email": "sadv@gmail.com",
+      "pass": "222sabadffLLL33",
+      "phone": "09124300044",
+      "id": 2
+    }
+  ]
+}

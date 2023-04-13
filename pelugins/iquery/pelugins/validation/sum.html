@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sum</title>
+</head>
+<body>
+    <input type="text" class="in1">
+    <input type="text" class="in2">
+    <input type="text" class="in3">
+    <input type="text" class="in4">
+    <input type="text" class="in5">
+    <button>sum</button>
+    <div id="demo"></div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+ 
+ $("button").click(function(){
+   let in1= $('.in1').val();
+   let in2= $('.in2').val();
+   let in3= $('.in3').val(); 
+    let in4= $('.in4').val();
+    let in5= $('.in5').val()
+    console.log(in1);
+    let suum=Number(in1)+Number(in2)+Number(in3)+Number(in4)+Number(in5);
+    $('#demo').append(`
+    <div>sum:${suum}</div>
+    `)
+   
+ })
+   </script>
+</body>
+</html>

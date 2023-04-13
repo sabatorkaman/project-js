@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ثبت نام</title>
+    <link rel="stylesheet" href="../dist/css/bootstrap.css">
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    @font-face {
+        font-family: vazir;
+        src: url(asstes/fonts/Vazirmatn-Light.woff2)format("woff2");
+    }
+
+    body {
+        font-family: vazir;
+    }
+
+    .error {
+        font-size: 12px;
+        color: red;
+        text-align: center;
+        display: block;
+    }
+
+    .box-login {
+        width: 500px;
+        height: 400px;
+        top: 100px;
+        left: 30%;
+        display: block;
+        text-align: center;
+    }
+    @media screen and (max-width: 820px) {
+     .box-login{
+        width:50% ;
+     }
+    }
+    @media screen and (max-width: 480px) {
+     .box-login{
+        width:60% ;
+        left: 20%;
+     }
+    }
+</style>
+
+<body class="bg-dark">
+    <div class="container-fluid  position-relative  ">
+        <div class="row ">
+            <div class="col-12 col-md-12 col-lg-12 text-center m-auto w-100 d-block">
+
+                <form action="" id="myform" class=" bg-light position-fixed box-login  m-auto  mx-auto">
+                    <input type="text" name="name" class="w-50 m-auto d-block p-2 mt-4  " placeholder="نام">
+                    <input type="text " name="email" class=" w-50 p-2 mt-4 m-auto  d-block " placeholder="ایمیل">
+                    <input type="text " name="pass" class="w-50 p-2  mt-4 m-auto  d-block" placeholder="رمز عبور">
+                    <input type="text " name="phone" class="w-50 p-2  mt-4 m-auto  d-block" placeholder="شماره تماس">
+                    <button class="bg-info p-2 mt-4 w-25 m-auto d-block mb-5">ثبت </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/jQuery/jquery-3.6.4.min.js"></script>
+    <script src="pelugins/iquery/pelugins/validation/jquery.validate.js"></script>
+
+    <script>
+        $(function () {
+            $('#myform').validate({
+                rules: {
+                    name: {
+                        required: true,
+                        minlength: 4
+                    },
+                    email: {
+                        required: true,
+                        email: true,
+                    },
+                    pass: {
+                        required: true,
+                        minlength: 4,
+                        pass: true,
+                    },
+                    phone: {
+                        required: true,
+                        phone: true
+                    }
+                }
+            })
+
+            $('#myform').submit(function (event) {
+                // event.preventDefault();
+                let name = $('input[name=name]').val();
+                let email = $('input[name=email]').val();
+                let pass = $('input[name=pass]').val();
+                let phone = $('input[name=phone]').val();
+                $.ajax({
+                    type: "POST",
+                    url: `   http://localhost:3000/users`,
+                    data: { name, email, pass, phone },
+                    success: function (response) {
+
+                    }
+                })
+
+            })
+
+        })
+    </script>
+</body>
+
+</html>
